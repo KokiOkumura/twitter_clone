@@ -8,6 +8,8 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light.navbar-brand Twitter-Clone
+  #wrap
+    h1.level1-heading
+      span.level1-heading__inner Twitter-Clone
     .container
       = yield

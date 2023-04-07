@@ -1,1 +1,32 @@
 @import "bootstrap";
+
+
+#wrap {
+  overflow: hidden;
+}
+
+// ナビゲーションバーのCSS
+.level1-heading {
+  padding:  30px 10px;
+  background-color:  lightblue;
+  color:  #fff;
+  font-size:  1.75rem;
+  text-align:  center;
+}
+
+.level1-heading__inner {
+  position: relative;
+  display: inline-block;
+  transform: translateY(-20%);
+}
+
+.level1-heading__inner::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 80px;
+  height: 1px;
+  background-color: currentColor;
+  transform: translateX(-50%);
+}
