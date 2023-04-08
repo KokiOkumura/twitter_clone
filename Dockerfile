@@ -10,9 +10,10 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   apt-get install -y --no-install-recommends \
   build-essential \
   nodejs \
+  mariadb-client \
   yarn && \
   apt-get clean && \
-  rm --recursive --force /var/lib/apt/lists/*
+  rm --recursive --force /var/lib/apt/lists/* 
 
 # create working directory
 RUN mkdir $APP_ROOT
