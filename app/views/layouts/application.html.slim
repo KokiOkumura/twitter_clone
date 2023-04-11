@@ -11,5 +11,7 @@ html
   #wrap
     h1.level1-heading
       span.level1-heading__inner Twitter-Clone
+    - flash.each do |key, value|
+      = content_tag :div, value, class: key
     .container
       = yield

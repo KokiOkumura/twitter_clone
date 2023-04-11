@@ -1,5 +1,5 @@
 = link_to "ログアウト", destroy_user_session_path, method: :delete
 
 aside
-  p = current_user.name
+  = link_to current_user.name, user_show_path
   button.btn.btn-outline-primary  つぶやく
