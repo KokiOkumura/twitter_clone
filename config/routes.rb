@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'user/show'
-  get 'user/edit'
+  resource :users, only: [:show] do
+    collection do
+      get 'edit_profile'
+    end
+  end
   root to: 'home#top'
   get 'home/top'
   devise_for :users

@@ -1,0 +1,14 @@
+h1 ユーザー詳細画面
+
+= link_to "プロフィール編集", edit_profile_users_path
+
+table.table.table-hover
+  tbody
+    tr
+      th= "名前"
+      td= current_user.name
+    tr
+      th = "自己紹介文"
+      td = @profile.profile_text
+
+

@@ -1,5 +1,6 @@
+h1 Topページ
 = link_to "ログアウト", destroy_user_session_path, method: :delete
 
 aside
-  = link_to current_user.name, user_show_path
+  = link_to current_user.name, users_path
   button.btn.btn-outline-primary  つぶやく
