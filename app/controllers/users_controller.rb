@@ -1,16 +1,24 @@
 class UsersController < ApplicationController
   def show
-    @profile = Profile.find(current_user.id)
+    @profile_text = current_user.profile_text
   end
 
   def edit_profile
-    @profile = Profile.find(current_user.id)
     @user = current_user
   end
 
-  def update
+ 
 
+  def update
+    user = current_user.name
+    user.update!(user_params)
+    redirect_to users_url
   end
 
+  private 
+
+  def user_params
+    params.require(:user).permit(:name)
+  end
 
 end

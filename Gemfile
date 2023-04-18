@@ -59,3 +59,5 @@ gem 'bootstrap'
 gem 'devise'
 gem 'devise-i18n'
 gem 'mysql2'
+gem 'pry-rails'
+
