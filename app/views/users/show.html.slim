@@ -9,6 +9,8 @@ table.table.table-hover
       td= current_user.name
     tr
       th = "自己紹介文"
-      td =  @profile_text
+      td =  simple_format(@profile_text)
+
+= link_to '戻る', home_top_path, class: "btn btn-primary"
 
 

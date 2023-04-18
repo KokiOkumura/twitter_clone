@@ -4,25 +4,22 @@ h2
   = render "devise/shared/error_messages", resource: resource
   .field
     = f.label :name
-  br
   = f.text_field :name, autofocus: true, autocomplete: "name"
-  .field
+  .field.mt-3
     = f.label :email
-  br
   = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
+  .field.mt-3
     = f.label :password
     - if @minimum_password_length
       em
         | (
         = @minimum_password_length
         |  文字以上)
-  br
   = f.password_field :password, autocomplete: "new-password"
-  .field
+  .field.mt-3
     = f.label :password_confirmation
-  br
   = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
+  .actions.mt-3
     = f.submit "登録"
+    
 = render "devise/shared/links"
