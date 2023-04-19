@@ -12,5 +12,5 @@ table.table.table-hover
       td =  simple_format(@profile_text)
 
 = link_to '戻る', home_top_path, class: "btn btn-primary"
-
+= link_to '退会', withdraw_users_path, method: :patch, data: { confirm: "本当に退会してよろしいですか？"}, class: "btn btn-danger ms-3"
 

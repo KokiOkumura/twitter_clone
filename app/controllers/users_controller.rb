@@ -12,8 +12,15 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update!(user_params)
+    @user.update(user_params)
     redirect_to users_url
+  end
+
+  def withdraw
+    @user = current_user
+    @user.update(is_valid: false)
+    reset_session
+    redirect_to root_path
   end
 
 

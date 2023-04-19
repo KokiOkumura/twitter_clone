@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_one :profile
   accepts_nested_attributes_for :profile,  allow_destroy: true
 
+  validates :name, presence: true
+
   # メソッドを追加
   def update_without_current_password(params, *options)
     params.delete(:current_password)
