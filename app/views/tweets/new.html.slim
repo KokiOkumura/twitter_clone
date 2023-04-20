@@ -1,0 +1,9 @@
+h1 新規ツイートページ
+
+
+=form_with model: @tweet, local: true do |f|
+
+  .form-group
+    = f.label :Tweet
+    = f.text_area :text, class: 'form-control'
+  = f.submit 'ツイートする', class: 'btn btn-primary mt-3'

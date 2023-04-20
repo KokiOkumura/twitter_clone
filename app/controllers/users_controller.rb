@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def show
     @profile_text = current_user.profile_text
     unless @profile_text.present?

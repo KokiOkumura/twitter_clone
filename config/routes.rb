@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       patch 'withdraw'
     end
   end
+  resource :tweets, only: [:new,:create]
   root to: 'home#top'
   get 'home/top'
   devise_for :users, :controllers => {

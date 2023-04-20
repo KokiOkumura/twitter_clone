@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_one :profile
-  accepts_nested_attributes_for :profile,  allow_destroy: true
+  has_many :tweets
 
   validates :name, presence: true
 
