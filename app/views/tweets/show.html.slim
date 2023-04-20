@@ -1,0 +1,7 @@
+h1 ツイート詳細ページ
+
+aside.mt-5.border.border-primary.p-3.text-center
+  = link_to current_user.name, users_path
+  = link_to 'コメントする', root_path, class: "btn btn-primary ms-3"
+
+p = @tweet.text

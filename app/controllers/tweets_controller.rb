@@ -3,6 +3,10 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
 
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
   def create
     # @tweet = Tweet.new(tweet_params)
     @tweet = current_user.tweets.new(tweet_params)
@@ -14,7 +18,6 @@ class TweetsController < ApplicationController
   end
 
   private
-
   def tweet_params
     params.require(:tweet).permit(:text, :user_id)
   end
