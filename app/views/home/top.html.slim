@@ -2,15 +2,15 @@ h1 Topページ
 = link_to "ログアウト", destroy_user_session_path, method: :delete
 
 aside.mt-5.border.border-primary.p-3.text-center
-  = link_to current_user.name, users_path
+  = link_to current_user.name, user_show_user_path(current_user)
   = link_to 'つぶやく', new_tweet_path, class: "btn btn-primary ms-3"
 
-table.table.table-hover
+table.table.table-hover.mt-5
   tbody
     - @tweets.each do |tweet| 
       tr
         th = "ユーザ名"  
-        td = tweet.user.name
+        td = link_to tweet.user.name, user_show_user_path(tweet.user)
       tr
         th = "つぶやき..."
         td = link_to simple_format(tweet.text), tweet_path(tweet)

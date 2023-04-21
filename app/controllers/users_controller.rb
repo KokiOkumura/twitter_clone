@@ -1,27 +1,28 @@
 class UsersController < ApplicationController
+
+  before_action :set_user, only: [:update, :user_show]
   
-  def show
-    @profile_text = current_user.profile_text
-    unless @profile_text.present?
-      @profile_text = "プロフィールがまだ書かれていません！"
-    end
-  end
+
 
   def edit_profile
-    @user = current_user
   end
 
   def update
-    @user = current_user
     @user.update(user_params)
-    redirect_to users_url
+    redirect_to user_show_user_path
   end
 
   def withdraw
-    @user = current_user
-    @user.update(is_valid: false)
+    current_user.update(is_valid: false)
     reset_session
     redirect_to root_path
+  end
+
+  def user_show
+    @profile_text = @user.profile_text
+      unless @profile_text.present?
+        @profile_text = "プロフィールがまだ書かれていません！"
+      end
   end
 
 
@@ -32,5 +33,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :profile_text)
   end
 
+  def set_user
+    @user = User.find(params[:id])
+  end
 
 end

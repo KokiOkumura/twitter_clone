@@ -1,7 +1,11 @@
 h1 ツイート詳細ページ
 
 aside.mt-5.border.border-primary.p-3.text-center
-  = link_to current_user.name, users_path
-  = link_to 'コメントする', root_path, class: "btn btn-primary ms-3"
+  = link_to current_user.name, user_show_user_path(current_user)
+  = link_to 'コメントする', new_comment_path, class: "btn btn-primary ms-3"
 
-p = @tweet.text
+div.text-center
+  p.mt-5 = "-投稿者-"
+  p.mt-3 = @tweet.user.name
+  p = "-投稿内容-"
+  p.mt-3 = @tweet.text

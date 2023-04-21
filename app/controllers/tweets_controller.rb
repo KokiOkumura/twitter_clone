@@ -13,11 +13,13 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to root_url, notice: "投稿完了"
     else
-      render :new
+      # render :new
+      redirect_to new_tweet_path
     end
   end
 
   private
+
   def tweet_params
     params.require(:tweet).permit(:text, :user_id)
   end

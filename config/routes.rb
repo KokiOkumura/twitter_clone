@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  resource :users, only: [:show,:update] do
+  resources :users, only: [:update] do
     collection do
       get 'edit_profile'
       patch 'withdraw'
     end
+    member do
+      get 'user_show'
+    end
   end
   resources :tweets, only: [:new,:create,:show]
+  resources :comments
   root to: 'home#top'
   get 'home/top'
   devise_for :users, :controllers => {

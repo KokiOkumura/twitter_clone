@@ -1,0 +1,17 @@
+h1 ユーザー詳細画面
+- if current_user == @user
+  = link_to "プロフィール編集", edit_profile_users_path(@user)
+
+table.table.table-hover
+  tbody
+    tr
+      th= "名前"
+      td = @user.name
+    tr
+      th = "自己紹介文"
+      td =  simple_format(@profile_text)
+
+= link_to '戻る', home_top_path, class: "btn btn-primary"
+- if current_user == @user
+  = link_to '退会', withdraw_users_path, method: :patch, data: { confirm: "本当に退会してよろしいですか？"}, class: "btn btn-danger ms-3"
+
