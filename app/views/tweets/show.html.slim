@@ -2,10 +2,25 @@ h1 ツイート詳細ページ
 
 aside.mt-5.border.border-primary.p-3.text-center
   = link_to current_user.name, user_show_user_path(current_user)
-  = link_to 'コメントする', new_comment_path, class: "btn btn-primary ms-3"
+  = link_to 'コメントする', new_tweet_comment_path(@tweet), class: "btn btn-primary ms-3"
 
-div.text-center
-  p.mt-5 = "-投稿者-"
+div.mt-3.text-center.border.border-primary
+  p.mt-3 = "-投稿者-"
   p.mt-3 = @tweet.user.name
   p = "-投稿内容-"
   p.mt-3 = @tweet.text
+
+
+
+table.table.table-hover.mt-5
+  tbody.border.border-primary
+    - @tweets.each do |comment| 
+      tr
+        th = "投稿者"  
+        td = link_to comment.user.name,  user_show_user_path(comment.user)
+      tr
+        th = "内容"
+        td = comment.text
+      tr
+        th = "投稿日時"
+        td = comment.created_at

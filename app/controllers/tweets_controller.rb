@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
+    @tweets = @tweet.comment.order(created_at: :desc)
   end
 
   def create
@@ -14,7 +15,7 @@ class TweetsController < ApplicationController
       redirect_to root_url, notice: "投稿完了"
     else
       # render :new
-      redirect_to new_tweet_path
+      redirect_to new_tweet_path , notice: "投稿に失敗しました。"
     end
   end
 

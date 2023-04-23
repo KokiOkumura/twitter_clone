@@ -8,8 +8,9 @@ Rails.application.routes.draw do
       get 'user_show'
     end
   end
-  resources :tweets, only: [:new,:create,:show]
-  resources :comments
+  resources :tweets, only: [:new,:create, :show] do
+    resources :comments
+  end
   root to: 'home#top'
   get 'home/top'
   devise_for :users, :controllers => {
