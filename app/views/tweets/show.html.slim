@@ -1,7 +1,7 @@
 h1 ツイート詳細ページ
 
 
-div.profile
+div.profile.login_user
   = image_tag current_user.image , class: "profile__img" if current_user.image.attached?
   = link_to current_user.name, user_show_user_path(current_user) ,class: "profile__name"
   = link_to 'コメントする', new_tweet_comment_path(@tweet), class: "btn btn-primary mt-3 ms-3"
@@ -10,7 +10,7 @@ div.profile
 div.profile
   = image_tag @tweet.user.image , class: "profile__img" if @tweet.user.image.attached?
   .profile-info
-    = link_to @tweet.user.name, root_path
+    = link_to @tweet.user.name, user_show_user_path(@tweet.user)
     = @tweet.text
 
 
