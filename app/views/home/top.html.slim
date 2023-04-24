@@ -1,19 +1,19 @@
 h1 Topページ
 = link_to "ログアウト", destroy_user_session_path, method: :delete
 
-aside.mt-5.border.border-primary.p-3.text-center
-  = link_to current_user.name, user_show_user_path(current_user)
-  = link_to 'つぶやく', new_tweet_path, class: "btn btn-primary ms-3"
+div.profile
+  = image_tag current_user.image , class: "profile__img" if current_user.image.attached?
+  = link_to current_user.name, user_show_user_path(current_user) ,class: "profile__name"
+  = link_to 'つぶやく', new_tweet_path, class: "btn btn-primary mt-3 ms-3"
 
-table.table.table-hover.mt-5
-  tbody
-    - @tweets.each do |tweet| 
-      tr
-        th = "ユーザ名"  
-        td = link_to tweet.user.name, user_show_user_path(tweet.user)
-      tr
-        th = "つぶやき..."
-        td = link_to simple_format(tweet.text), tweet_path(tweet)
+h2.mt-3 = "投稿一覧"
 
+
+- @tweets.each do |tweet|
+    .profile
+      = image_tag tweet.user.image, class: "profile__img" if tweet.user.image.attached?
+      .profile-info
+          =  link_to tweet.user.name,  user_show_user_path(tweet.user)
+          =  link_to simple_format(tweet.text), tweet_path(tweet)
 
 

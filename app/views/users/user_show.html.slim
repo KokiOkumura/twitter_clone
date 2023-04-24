@@ -10,6 +10,13 @@ table.table.table-hover
     tr
       th = "自己紹介文"
       td =  simple_format(@profile_text)
+    tr
+      th = "プロフィール画像"
+      - if @user.image.attached?
+        td = image_tag @user.image
+      - else
+        td = "未設定です"  
+      
 
 = link_to '戻る', home_top_path, class: "btn btn-primary"
 - if current_user == @user
