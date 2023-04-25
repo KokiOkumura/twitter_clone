@@ -21,3 +21,5 @@ div.profile
       .profile-info
           =  link_to comment.user.name,  user_show_user_path(comment.user)
           = comment.text
+
+= link_to '戻る', home_top_path, class: "btn btn-primary mt-3"

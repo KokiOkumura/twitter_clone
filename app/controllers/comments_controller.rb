@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to tweet_path(params[:tweet_id]), notice: "投稿完了"
     else
-      redirect_to root_path, notice: "失敗"
+      redirect_to new_tweet_comment_path , notice: "コメントに失敗しました。"
     end
   end
 
