@@ -20,7 +20,7 @@ h2.mt-3.text-center = "投稿一覧"
       = image_tag 'unkown.png', class: "profile__img"
     .profile-info
        =  link_to tweet.user.name,  user_show_user_path(tweet.user)
-       =  link_to simple_format(tweet.text), tweet_path(tweet)
+       =  link_to simple_format(tweet.text), tweet_path(tweet) ,class: "mt-3"
 
 
 

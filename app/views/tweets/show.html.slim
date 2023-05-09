@@ -28,7 +28,7 @@ div.profile
     - else
       = image_tag 'unkown.png', class: "profile__img"
     .profile-info
-      =  link_to comment.user.name,  user_show_user_path(comment.user)
+      = link_to comment.user.name,  user_show_user_path(comment.user)
       = comment.text
 
 
