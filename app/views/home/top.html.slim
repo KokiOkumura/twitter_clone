@@ -2,7 +2,10 @@ h1 Topページ
 = link_to "ログアウト", destroy_user_session_path, method: :delete
 
 div.profile.login_user
-  = image_tag current_user.image , class: "profile__img" if current_user.image.attached?
+  - if current_user.image.attached?
+    = image_tag current_user.image , class: "profile__img"
+  - else
+    = image_tag 'unkown.png', class: "profile__img"
   = link_to current_user.name, user_show_user_path(current_user) ,class: "profile__name"
   = link_to 'つぶやく', new_tweet_path, class: "btn btn-primary mt-3 ms-3"
 
@@ -10,10 +13,14 @@ h2.mt-3.text-center = "投稿一覧"
 
 
 - @tweets.each do |tweet|
-    .profile
-      = image_tag tweet.user.image, class: "profile__img" if tweet.user.image.attached?
-      .profile-info
-          =  link_to tweet.user.name,  user_show_user_path(tweet.user)
-          =  link_to simple_format(tweet.text), tweet_path(tweet)
+  .profile
+    - if tweet.user.image.attached?
+      = image_tag tweet.user.image , class: "profile__img"
+    - else
+      = image_tag 'unkown.png', class: "profile__img"
+    .profile-info
+       =  link_to tweet.user.name,  user_show_user_path(tweet.user)
+       =  link_to simple_format(tweet.text), tweet_path(tweet)
+
 
 

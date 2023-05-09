@@ -61,3 +61,6 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'mysql2'
 
+gem 'dotenv-rails'
+gem 'omniauth', '~> 1.9.1'
+gem 'omniauth-github'

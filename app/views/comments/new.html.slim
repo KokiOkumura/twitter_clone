@@ -4,7 +4,8 @@ h1 コメント投稿ページ
 
   .form-group
     = f.label :Comment
-    = f.text_area :text, class: 'form-control'
+    = f.text_area :text, value: params[:text], class: 'form-control'
   div.text-center
     = f.submit 'コメントする', class: 'btn btn-primary mt-3 p-3'
 
+= link_to '戻る', tweet_path(params[:tweet_id]), class: "btn btn-primary mt-3"
