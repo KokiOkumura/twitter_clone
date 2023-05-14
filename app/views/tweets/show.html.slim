@@ -18,6 +18,9 @@ div.profile
   .profile-info
     = link_to @tweet.user.name, user_show_user_path(@tweet.user)
     = @tweet.text
+  = fa_icon 'heart', class: 'icon', id: 'heart'
+
+
 
 
 

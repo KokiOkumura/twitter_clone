@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :tweets
   has_many :comments
+  has_many :likes
+  
 
   validates :name, presence: true
   validates :uid, presence: true, uniqueness: { 

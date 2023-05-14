@@ -12,6 +12,8 @@ div.profile.login_user
 h2.mt-3.text-center = "投稿一覧"
 
 
+
+
 - @tweets.each do |tweet|
   .profile
     - if tweet.user.image.attached?

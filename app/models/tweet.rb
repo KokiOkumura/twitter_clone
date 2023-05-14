@@ -3,5 +3,6 @@ class Tweet < ApplicationRecord
   validates :text, length: {maximum: 140}, presence: true
 
   belongs_to :user, dependent: :destroy
-  has_many :comment
+  has_many :comments
+  has_many :likes, as: :user
 end

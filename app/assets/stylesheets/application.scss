@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "home";
+@import "font-awesome";
 
 #wrap {
   overflow: hidden;
@@ -55,4 +56,12 @@ img {
 .login_user {
   border: skyblue 5px solid;
   justify-content: center;
+}
+
+#heart {
+  cursor: pointer;
+}
+
+.heart_red {
+  color: red
 }
