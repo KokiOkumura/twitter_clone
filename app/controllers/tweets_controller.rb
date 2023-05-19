@@ -6,6 +6,7 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     @tweets = @tweet.comments.order(created_at: :desc)
+    @like = Like.new
   end
 
   def create
@@ -16,6 +17,15 @@ class TweetsController < ApplicationController
     else
       # render :new
       redirect_to new_tweet_path , notice: "投稿に失敗しました。"
+    end
+  end
+
+  def like_create
+    @like = Like.new
+    @like.user_id = current_user
+    @like.user_type = params[:id]
+    if @like.save 
+      redirect_to root_url, notice: "投稿完了"
     end
   end
 

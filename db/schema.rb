@@ -42,10 +42,12 @@ ActiveRecord::Schema.define(version: 2023_05_12_140831) do
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.string "user_type"
+    t.integer "content_id"
+    t.string "content_type"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

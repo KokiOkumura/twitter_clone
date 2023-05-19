@@ -4,5 +4,5 @@ class Tweet < ApplicationRecord
 
   belongs_to :user, dependent: :destroy
   has_many :comments
-  has_many :likes, as: :user
+  has_many :likes, as: :content
 end
